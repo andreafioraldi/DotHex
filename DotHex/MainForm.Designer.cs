@@ -48,7 +48,6 @@ namespace DotHex
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.EditPage = new System.Windows.Forms.TabPage();
-            this.hexBox1 = new Be.Windows.Forms.HexBox();
             this.StringsPage = new System.Windows.Forms.TabPage();
             this.stringsList = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -103,10 +102,14 @@ namespace DotHex
             this.menuItem3 = new System.Windows.Forms.MenuItem();
             this.menuCopyHex = new System.Windows.Forms.MenuItem();
             this.menuSelectAll = new System.Windows.Forms.MenuItem();
+            this.menuDelete = new System.Windows.Forms.MenuItem();
             this.menuItem4 = new System.Windows.Forms.MenuItem();
             this.menuFind = new System.Windows.Forms.MenuItem();
+            this.menuFindNext = new System.Windows.Forms.MenuItem();
             this.menuReplace = new System.Windows.Forms.MenuItem();
             this.menuGoto = new System.Windows.Forms.MenuItem();
+            this.menuItem5 = new System.Windows.Forms.MenuItem();
+            this.menuInsert = new System.Windows.Forms.MenuItem();
             this.menuTools = new System.Windows.Forms.MenuItem();
             this.menuCalculator = new System.Windows.Forms.MenuItem();
             this.menuInfo = new System.Windows.Forms.MenuItem();
@@ -116,7 +119,6 @@ namespace DotHex
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.dragDropLbl = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
-            this.EditPage.SuspendLayout();
             this.StringsPage.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.strMinimumBox)).BeginInit();
@@ -138,7 +140,6 @@ namespace DotHex
             // 
             // EditPage
             // 
-            this.EditPage.Controls.Add(this.hexBox1);
             this.EditPage.Location = new System.Drawing.Point(4, 25);
             this.EditPage.Name = "EditPage";
             this.EditPage.Padding = new System.Windows.Forms.Padding(3);
@@ -146,26 +147,6 @@ namespace DotHex
             this.EditPage.TabIndex = 0;
             this.EditPage.Text = "Editor";
             this.EditPage.UseVisualStyleBackColor = true;
-            // 
-            // hexBox1
-            // 
-            this.hexBox1.AllowDrop = true;
-            this.hexBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.hexBox1.ColumnInfoVisible = true;
-            this.hexBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.hexBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hexBox1.InfoForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.hexBox1.LineInfoVisible = true;
-            this.hexBox1.Location = new System.Drawing.Point(3, 3);
-            this.hexBox1.Name = "hexBox1";
-            this.hexBox1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            this.hexBox1.ShadowSelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(60)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
-            this.hexBox1.Size = new System.Drawing.Size(520, 292);
-            this.hexBox1.StringViewVisible = true;
-            this.hexBox1.TabIndex = 0;
-            this.hexBox1.VScrollBarVisible = true;
-            this.hexBox1.SelectionStartChanged += new System.EventHandler(this.hexBox1_SelectionStartChanged);
-            this.hexBox1.SelectionLengthChanged += new System.EventHandler(this.hexBox1_SelectionLengthChanged);
             // 
             // StringsPage
             // 
@@ -598,6 +579,7 @@ namespace DotHex
             // menuOpen
             // 
             this.menuOpen.Index = 0;
+            this.menuOpen.Shortcut = System.Windows.Forms.Shortcut.CtrlO;
             this.menuOpen.Text = "Open";
             this.menuOpen.Click += new System.EventHandler(this.menuOpen_Click);
             // 
@@ -605,6 +587,7 @@ namespace DotHex
             // 
             this.menuSave.Enabled = false;
             this.menuSave.Index = 1;
+            this.menuSave.Shortcut = System.Windows.Forms.Shortcut.CtrlS;
             this.menuSave.Text = "Save";
             this.menuSave.Click += new System.EventHandler(this.menuSave_Click);
             // 
@@ -612,6 +595,7 @@ namespace DotHex
             // 
             this.menuSaveAs.Enabled = false;
             this.menuSaveAs.Index = 2;
+            this.menuSaveAs.Shortcut = System.Windows.Forms.Shortcut.CtrlShiftS;
             this.menuSaveAs.Text = "Save as";
             this.menuSaveAs.Click += new System.EventHandler(this.menuSaveAs_Click);
             // 
@@ -626,6 +610,7 @@ namespace DotHex
             // 
             this.menuClose.Enabled = false;
             this.menuClose.Index = 4;
+            this.menuClose.Shortcut = System.Windows.Forms.Shortcut.CtrlW;
             this.menuClose.Text = "Close";
             this.menuClose.Click += new System.EventHandler(this.menuClose_Click);
             // 
@@ -637,6 +622,7 @@ namespace DotHex
             // menuItem2
             // 
             this.menuItem2.Index = 6;
+            this.menuItem2.Shortcut = System.Windows.Forms.Shortcut.AltF4;
             this.menuItem2.Text = "Exit";
             this.menuItem2.Click += new System.EventHandler(this.menuItem2_Click);
             // 
@@ -651,27 +637,34 @@ namespace DotHex
             this.menuItem3,
             this.menuCopyHex,
             this.menuSelectAll,
+            this.menuDelete,
             this.menuItem4,
             this.menuFind,
+            this.menuFindNext,
             this.menuReplace,
-            this.menuGoto});
+            this.menuGoto,
+            this.menuItem5,
+            this.menuInsert});
             this.menuEdit.Text = "Edit";
             // 
             // menuCut
             // 
             this.menuCut.Index = 0;
+            this.menuCut.Shortcut = System.Windows.Forms.Shortcut.CtrlX;
             this.menuCut.Text = "Cut";
             this.menuCut.Click += new System.EventHandler(this.menuCut_Click);
             // 
             // menuCopy
             // 
             this.menuCopy.Index = 1;
+            this.menuCopy.Shortcut = System.Windows.Forms.Shortcut.CtrlC;
             this.menuCopy.Text = "Copy";
             this.menuCopy.Click += new System.EventHandler(this.menuCopy_Click);
             // 
             // menuPaste
             // 
             this.menuPaste.Index = 2;
+            this.menuPaste.Shortcut = System.Windows.Forms.Shortcut.CtrlV;
             this.menuPaste.Text = "Paste";
             this.menuPaste.Click += new System.EventHandler(this.menuPaste_Click);
             // 
@@ -683,37 +676,68 @@ namespace DotHex
             // menuCopyHex
             // 
             this.menuCopyHex.Index = 4;
+            this.menuCopyHex.Shortcut = System.Windows.Forms.Shortcut.CtrlShiftC;
             this.menuCopyHex.Text = "Copy Hex";
             this.menuCopyHex.Click += new System.EventHandler(this.menuCopyHex_Click);
             // 
             // menuSelectAll
             // 
             this.menuSelectAll.Index = 5;
+            this.menuSelectAll.Shortcut = System.Windows.Forms.Shortcut.CtrlA;
             this.menuSelectAll.Text = "Select all";
             this.menuSelectAll.Click += new System.EventHandler(this.menuSelectAll_Click);
             // 
+            // menuDelete
+            // 
+            this.menuDelete.Index = 6;
+            this.menuDelete.Shortcut = System.Windows.Forms.Shortcut.Del;
+            this.menuDelete.Text = "Delete";
+            this.menuDelete.Click += new System.EventHandler(this.menuDelete_Click);
+            // 
             // menuItem4
             // 
-            this.menuItem4.Index = 6;
+            this.menuItem4.Index = 7;
             this.menuItem4.Text = "-";
             // 
             // menuFind
             // 
-            this.menuFind.Index = 7;
+            this.menuFind.Index = 8;
+            this.menuFind.Shortcut = System.Windows.Forms.Shortcut.CtrlF;
             this.menuFind.Text = "Find";
             this.menuFind.Click += new System.EventHandler(this.menuFind_Click);
             // 
+            // menuFindNext
+            // 
+            this.menuFindNext.Index = 9;
+            this.menuFindNext.Shortcut = System.Windows.Forms.Shortcut.F3;
+            this.menuFindNext.Text = "Find next";
+            this.menuFindNext.Click += new System.EventHandler(this.menuFindNext_Click);
+            // 
             // menuReplace
             // 
-            this.menuReplace.Index = 8;
+            this.menuReplace.Index = 10;
+            this.menuReplace.Shortcut = System.Windows.Forms.Shortcut.CtrlH;
             this.menuReplace.Text = "Replace";
             this.menuReplace.Click += new System.EventHandler(this.menuReplace_Click);
             // 
             // menuGoto
             // 
-            this.menuGoto.Index = 9;
+            this.menuGoto.Index = 11;
+            this.menuGoto.Shortcut = System.Windows.Forms.Shortcut.CtrlG;
             this.menuGoto.Text = "Goto";
             this.menuGoto.Click += new System.EventHandler(this.menuGoto_Click);
+            // 
+            // menuItem5
+            // 
+            this.menuItem5.Index = 12;
+            this.menuItem5.Text = "-";
+            // 
+            // menuInsert
+            // 
+            this.menuInsert.Index = 13;
+            this.menuInsert.Shortcut = System.Windows.Forms.Shortcut.Ins;
+            this.menuInsert.Text = "Insert mode";
+            this.menuInsert.Click += new System.EventHandler(this.menuInsert_Click);
             // 
             // menuTools
             // 
@@ -779,7 +803,6 @@ namespace DotHex
             this.Text = "DotHex";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.tabControl1.ResumeLayout(false);
-            this.EditPage.ResumeLayout(false);
             this.StringsPage.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -792,7 +815,6 @@ namespace DotHex
 
         #endregion
 
-        private Be.Windows.Forms.HexBox hexBox1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage EditPage;
         private System.Windows.Forms.TabPage StringsPage;
@@ -861,6 +883,10 @@ namespace DotHex
         private System.Windows.Forms.MenuItem menuCalculator;
         private System.Windows.Forms.MenuItem menuGoto;
         private System.Windows.Forms.Label dragDropLbl;
+        private System.Windows.Forms.MenuItem menuItem5;
+        private System.Windows.Forms.MenuItem menuInsert;
+        private System.Windows.Forms.MenuItem menuDelete;
+        private System.Windows.Forms.MenuItem menuFindNext;
     }
 }
 

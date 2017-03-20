@@ -35,7 +35,7 @@ namespace DotHex
             findOptions.Type = FindType.Hex;
         }
 
-        private void nextBtn_Click(object sender, EventArgs e)
+        public void Next()
         {
             if (changed)
             {
@@ -48,10 +48,15 @@ namespace DotHex
             }
 
             long pos = hexBox.Find(findOptions);
-            if(pos == -1)
+            if (pos == -1)
             {
                 MessageBox.Show("Pattern not found.");
             }
+        }
+
+        private void nextBtn_Click(object sender, EventArgs e)
+        {
+            Next();
         }
 
         private void caseBox_CheckedChanged(object sender, EventArgs e)
@@ -67,6 +72,11 @@ namespace DotHex
         private void findHexBox_TextChanged(object sender, EventArgs e)
         {
             changed = true;
+        }
+
+        private void FindForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

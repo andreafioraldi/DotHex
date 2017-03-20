@@ -27,14 +27,42 @@ namespace DotHex
 {
     public partial class MainForm : Form
     {
+        private Be.Windows.Forms.HexBox hexBox1;
+
+        private void hexBoxInit()
+        {
+            this.hexBox1 = new Be.Windows.Forms.HexBox();
+            this.hexBox1.AllowDrop = true;
+            this.hexBox1.BackColor = System.Drawing.SystemColors.Window;
+            this.hexBox1.ColumnInfoVisible = true;
+            this.hexBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.hexBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hexBox1.InfoForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.hexBox1.LineInfoVisible = true;
+            this.hexBox1.Location = new System.Drawing.Point(3, 3);
+            this.hexBox1.Name = "hexBox1";
+            this.hexBox1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            this.hexBox1.ShadowSelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(60)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
+            this.hexBox1.Size = new System.Drawing.Size(520, 292);
+            this.hexBox1.StringViewVisible = true;
+            this.hexBox1.TabIndex = 0;
+            this.hexBox1.VScrollBarVisible = true;
+            this.hexBox1.SelectionStartChanged += new System.EventHandler(this.hexBox1_SelectionStartChanged);
+            this.hexBox1.SelectionLengthChanged += new System.EventHandler(this.hexBox1_SelectionLengthChanged);
+
+            this.EditPage.Controls.Add(hexBox1);
+        }
+
         public MainForm()
         {
             InitializeComponent();
+            hexBoxInit();
         }
 
         public MainForm(String file)
         {
             InitializeComponent();
+            hexBoxInit();
             Open(file);
         }
 
@@ -47,6 +75,7 @@ namespace DotHex
             findFm = new FindForm(hexBox1);
             replFm = new ReplaceForm(hexBox1);
             gotoFm = new GotoForm(hexBox1);
+            hexBox1.InsertActive = menuInsert.Checked;
             hexBox1.Select();
         }
 
@@ -370,6 +399,22 @@ MA 02110-1301, USA.");
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
                 e.Effect = DragDropEffects.Copy;
+        }
+
+        private void menuInsert_Click(object sender, EventArgs e)
+        {
+            menuInsert.Checked = !menuInsert.Checked;
+            hexBox1.InsertActive = menuInsert.Checked;
+        }
+
+        private void menuDelete_Click(object sender, EventArgs e)
+        {
+            provider.DeleteBytes(hexBox1.SelectionStart, hexBox1.SelectionLength);
+        }
+
+        private void menuFindNext_Click(object sender, EventArgs e)
+        {
+            findFm.Next();
         }
     }
 }

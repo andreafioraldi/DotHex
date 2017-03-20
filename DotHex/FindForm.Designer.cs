@@ -93,7 +93,7 @@ namespace DotHex
             this.panel1.Controls.Add(this.caseBox);
             this.panel1.Controls.Add(this.closeBtn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 132);
+            this.panel1.Location = new System.Drawing.Point(0, 155);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(318, 31);
             this.panel1.TabIndex = 5;
@@ -107,7 +107,7 @@ namespace DotHex
             this.findHexBox.Name = "findHexBox";
             this.findHexBox.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             this.findHexBox.ShadowSelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(60)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
-            this.findHexBox.Size = new System.Drawing.Size(318, 132);
+            this.findHexBox.Size = new System.Drawing.Size(318, 155);
             this.findHexBox.StringViewVisible = true;
             this.findHexBox.TabIndex = 0;
             this.findHexBox.VScrollBarVisible = true;
@@ -117,7 +117,7 @@ namespace DotHex
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(318, 163);
+            this.ClientSize = new System.Drawing.Size(318, 186);
             this.ControlBox = false;
             this.Controls.Add(this.findHexBox);
             this.Controls.Add(this.panel1);
@@ -129,6 +129,7 @@ namespace DotHex
             this.ShowInTaskbar = false;
             this.Text = "Find";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.FindForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
