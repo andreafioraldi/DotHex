@@ -112,6 +112,7 @@ namespace DotHex
             this.menuInsert = new System.Windows.Forms.MenuItem();
             this.menuTools = new System.Windows.Forms.MenuItem();
             this.menuCalculator = new System.Windows.Forms.MenuItem();
+            this.menuConverter = new System.Windows.Forms.MenuItem();
             this.menuInfo = new System.Windows.Forms.MenuItem();
             this.menuAbout = new System.Windows.Forms.MenuItem();
             this.menuLicense = new System.Windows.Forms.MenuItem();
@@ -743,7 +744,8 @@ namespace DotHex
             // 
             this.menuTools.Index = 2;
             this.menuTools.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuCalculator});
+            this.menuCalculator,
+            this.menuConverter});
             this.menuTools.Text = "Tools";
             // 
             // menuCalculator
@@ -751,6 +753,12 @@ namespace DotHex
             this.menuCalculator.Index = 0;
             this.menuCalculator.Text = "Calculator";
             this.menuCalculator.Click += new System.EventHandler(this.menuCalculator_Click);
+            // 
+            // menuConverter
+            // 
+            this.menuConverter.Index = 1;
+            this.menuConverter.Text = "Converter";
+            this.menuConverter.Click += new System.EventHandler(this.menuConverter_Click);
             // 
             // menuInfo
             // 
@@ -887,6 +895,7 @@ namespace DotHex
         private System.Windows.Forms.MenuItem menuInsert;
         private System.Windows.Forms.MenuItem menuDelete;
         private System.Windows.Forms.MenuItem menuFindNext;
+        private System.Windows.Forms.MenuItem menuConverter;
     }
 }
 

@@ -66,15 +66,17 @@ namespace DotHex
             Open(file);
         }
 
-        FindForm findFm;
-        ReplaceForm replFm;
-        GotoForm gotoFm;
+        private FindForm findFm;
+        private ReplaceForm replFm;
+        private GotoForm gotoFm;
+        private ConverterForm convertFm;
 
         private void MainForm_Load(object sender, EventArgs e)
         {
             findFm = new FindForm(hexBox1);
             replFm = new ReplaceForm(hexBox1);
             gotoFm = new GotoForm(hexBox1);
+            convertFm = new ConverterForm();
             hexBox1.InsertActive = menuInsert.Checked;
             hexBox1.Select();
         }
@@ -415,6 +417,11 @@ MA 02110-1301, USA.");
         private void menuFindNext_Click(object sender, EventArgs e)
         {
             findFm.Next();
+        }
+
+        private void menuConverter_Click(object sender, EventArgs e)
+        {
+            convertFm.Show();
         }
     }
 }
