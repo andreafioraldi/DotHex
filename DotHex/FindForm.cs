@@ -18,12 +18,13 @@
 using Be.Windows.Forms;
 using System;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace DotHex
 {
     public partial class FindForm : Form
     {
-        private Be.Windows.Forms.HexBox findHexBox;
+        private HexBox findHexBox;
 
         private HexBox hexBox;
         private FindOptions findOptions = new FindOptions();
@@ -32,21 +33,21 @@ namespace DotHex
         public FindForm(HexBox hexBox)
         {
             InitializeComponent();
-            // 
-            // findHexBox
-            // 
-            this.findHexBox.BackColor = System.Drawing.SystemColors.Window;
-            this.findHexBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.findHexBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.findHexBox.Location = new System.Drawing.Point(0, 0);
-            this.findHexBox.Name = "findHexBox";
-            this.findHexBox.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            this.findHexBox.ShadowSelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(60)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
-            this.findHexBox.Size = new System.Drawing.Size(318, 155);
-            this.findHexBox.StringViewVisible = true;
-            this.findHexBox.TabIndex = 0;
-            this.findHexBox.VScrollBarVisible = true;
-            this.findHexBox.TextChanged += new System.EventHandler(this.findHexBox_TextChanged);
+
+            findHexBox.BackColor = SystemColors.Window;
+            findHexBox.Dock = DockStyle.Fill;
+            findHexBox.Font = new Font("Segoe UI", 9F);
+            findHexBox.Location = new Point(0, 0);
+            findHexBox.Name = "findHexBox";
+            findHexBox.SelectionBackColor = SystemColors.Highlight;
+            findHexBox.ShadowSelectionColor = Color.FromArgb(100, 60, 188, 255);
+            findHexBox.Size = new Size(318, 155);
+            findHexBox.StringViewVisible = true;
+            findHexBox.TabIndex = 0;
+            findHexBox.VScrollBarVisible = true;
+            findHexBox.TextChanged += new EventHandler(findHexBox_TextChanged);
+
+            Controls.Add(findHexBox);
 
             this.hexBox = hexBox;
             findHexBox.ByteProvider = new DynamicByteProvider(new byte[] { });
@@ -92,9 +93,5 @@ namespace DotHex
             changed = true;
         }
 
-        private void FindForm_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

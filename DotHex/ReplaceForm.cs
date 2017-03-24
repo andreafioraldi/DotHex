@@ -18,13 +18,14 @@
 using Be.Windows.Forms;
 using System;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace DotHex
 {
     public partial class ReplaceForm : Form
     {
-        private Be.Windows.Forms.HexBox findHexBox;
-        private Be.Windows.Forms.HexBox replHexBox;
+        private HexBox findHexBox;
+        private HexBox replHexBox;
 
         private HexBox hexBox;
         private FindOptions findOptions = new FindOptions();
@@ -35,36 +36,35 @@ namespace DotHex
         public ReplaceForm(HexBox hexBox)
         {
             InitializeComponent();
-            // 
-            // findHexBox
-            // 
-            this.findHexBox.BackColor = System.Drawing.SystemColors.Window;
-            this.findHexBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.findHexBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.findHexBox.Location = new System.Drawing.Point(0, 0);
-            this.findHexBox.Name = "findHexBox";
-            this.findHexBox.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            this.findHexBox.ShadowSelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(60)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
-            this.findHexBox.Size = new System.Drawing.Size(387, 106);
-            this.findHexBox.StringViewVisible = true;
-            this.findHexBox.TabIndex = 5;
-            this.findHexBox.VScrollBarVisible = true;
-            this.findHexBox.TextChanged += new System.EventHandler(this.findHexBox_TextChanged);
-            // 
-            // replHexBox
-            // 
-            this.replHexBox.BackColor = System.Drawing.SystemColors.Window;
-            this.replHexBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.replHexBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.replHexBox.Location = new System.Drawing.Point(0, 0);
-            this.replHexBox.Name = "replHexBox";
-            this.replHexBox.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            this.replHexBox.ShadowSelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(60)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
-            this.replHexBox.Size = new System.Drawing.Size(387, 102);
-            this.replHexBox.StringViewVisible = true;
-            this.replHexBox.TabIndex = 9;
-            this.replHexBox.VScrollBarVisible = true;
-            this.replHexBox.TextChanged += new System.EventHandler(this.replHexBox_TextChanged);
+
+            findHexBox.BackColor = SystemColors.Window;
+            findHexBox.Dock = DockStyle.Fill;
+            findHexBox.Font = new Font("Segoe UI", 9F);
+            findHexBox.Location = new Point(0, 0);
+            findHexBox.Name = "findHexBox";
+            findHexBox.SelectionBackColor = SystemColors.Highlight;
+            findHexBox.ShadowSelectionColor = Color.FromArgb(100, 60, 188, 255);
+            findHexBox.Size = new Size(387, 106);
+            findHexBox.StringViewVisible = true;
+            findHexBox.TabIndex = 5;
+            findHexBox.VScrollBarVisible = true;
+            findHexBox.TextChanged += new EventHandler(findHexBox_TextChanged);
+            
+            replHexBox.BackColor = SystemColors.Window;
+            replHexBox.Dock = DockStyle.Fill;
+            replHexBox.Font = new Font("Segoe UI", 9F);
+            replHexBox.Location = new Point(0, 0);
+            replHexBox.Name = "replHexBox";
+            replHexBox.SelectionBackColor = SystemColors.Highlight;
+            replHexBox.ShadowSelectionColor = Color.FromArgb(100, 60, 188, 255);
+            replHexBox.Size = new Size(387, 102);
+            replHexBox.StringViewVisible = true;
+            replHexBox.TabIndex = 9;
+            replHexBox.VScrollBarVisible = true;
+            replHexBox.TextChanged += new EventHandler(replHexBox_TextChanged);
+
+            splitContainer1.Panel1.Controls.Add(findHexBox);
+            splitContainer1.Panel2.Controls.Add(replHexBox);
 
             this.hexBox = hexBox;
             findHexBox.ByteProvider = new DynamicByteProvider(new byte[] { });

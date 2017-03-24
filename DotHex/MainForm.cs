@@ -423,5 +423,18 @@ MA 02110-1301, USA.");
         {
             convertFm.Show();
         }
+
+        private void saveListBtn_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                StreamWriter fs = new StreamWriter(saveFileDialog1.OpenFile());
+                for (int i = 0; i < stringsList.Items.Count; ++i)
+                {
+                    fs.WriteLine(stringsList.Items[i]);
+                }
+                fs.Close();
+            }
+        }
     }
 }

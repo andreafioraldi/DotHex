@@ -51,6 +51,7 @@ namespace DotHex
             this.StringsPage = new System.Windows.Forms.TabPage();
             this.stringsList = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.saveListBtn = new System.Windows.Forms.Button();
             this.searchStrBtn = new System.Windows.Forms.Button();
             this.alphanumAsciiBox = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
@@ -176,6 +177,7 @@ namespace DotHex
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.saveListBtn);
             this.panel1.Controls.Add(this.searchStrBtn);
             this.panel1.Controls.Add(this.alphanumAsciiBox);
             this.panel1.Controls.Add(this.label1);
@@ -187,6 +189,17 @@ namespace DotHex
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(520, 51);
             this.panel1.TabIndex = 11;
+            // 
+            // saveListBtn
+            // 
+            this.saveListBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.saveListBtn.Location = new System.Drawing.Point(442, 3);
+            this.saveListBtn.Name = "saveListBtn";
+            this.saveListBtn.Size = new System.Drawing.Size(73, 23);
+            this.saveListBtn.TabIndex = 11;
+            this.saveListBtn.Text = "Save list";
+            this.saveListBtn.UseVisualStyleBackColor = true;
+            this.saveListBtn.Click += new System.EventHandler(this.saveListBtn_Click);
             // 
             // searchStrBtn
             // 
@@ -896,6 +909,7 @@ namespace DotHex
         private System.Windows.Forms.MenuItem menuDelete;
         private System.Windows.Forms.MenuItem menuFindNext;
         private System.Windows.Forms.MenuItem menuConverter;
+        private System.Windows.Forms.Button saveListBtn;
     }
 }
 

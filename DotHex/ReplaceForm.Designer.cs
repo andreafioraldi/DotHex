@@ -126,11 +126,9 @@ namespace DotHex
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.findHexBox);
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.replHexBox);
             this.splitContainer1.Size = new System.Drawing.Size(387, 212);
             this.splitContainer1.SplitterDistance = 106;
             this.splitContainer1.TabIndex = 13;

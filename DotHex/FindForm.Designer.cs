@@ -104,7 +104,6 @@ namespace DotHex
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(318, 186);
             this.ControlBox = false;
-            this.Controls.Add(this.findHexBox);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.MinimumSize = new System.Drawing.Size(334, 202);
@@ -114,7 +113,6 @@ namespace DotHex
             this.ShowInTaskbar = false;
             this.Text = "Find";
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.FindForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
