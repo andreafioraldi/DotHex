@@ -98,21 +98,6 @@ namespace DotHex
             this.panel1.Size = new System.Drawing.Size(318, 31);
             this.panel1.TabIndex = 5;
             // 
-            // findHexBox
-            // 
-            this.findHexBox.BackColor = System.Drawing.SystemColors.Window;
-            this.findHexBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.findHexBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.findHexBox.Location = new System.Drawing.Point(0, 0);
-            this.findHexBox.Name = "findHexBox";
-            this.findHexBox.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            this.findHexBox.ShadowSelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(60)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
-            this.findHexBox.Size = new System.Drawing.Size(318, 155);
-            this.findHexBox.StringViewVisible = true;
-            this.findHexBox.TabIndex = 0;
-            this.findHexBox.VScrollBarVisible = true;
-            this.findHexBox.TextChanged += new System.EventHandler(this.findHexBox_TextChanged);
-            // 
             // FindForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -138,7 +123,6 @@ namespace DotHex
 
         #endregion
 
-        private Be.Windows.Forms.HexBox findHexBox;
         private System.Windows.Forms.Button closeBtn;
         private System.Windows.Forms.Button nextBtn;
         private System.Windows.Forms.CheckBox caseBox;
