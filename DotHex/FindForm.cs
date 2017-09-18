@@ -28,7 +28,6 @@ namespace DotHex
 
         private HexBox hexBox;
         private FindOptions findOptions = new FindOptions();
-        private bool changed = true;
 
         public FindForm(HexBox hexBox)
         {
@@ -45,7 +44,6 @@ namespace DotHex
             findHexBox.StringViewVisible = true;
             findHexBox.TabIndex = 0;
             findHexBox.VScrollBarVisible = true;
-            findHexBox.TextChanged += new EventHandler(findHexBox_TextChanged);
 
             Controls.Add(findHexBox);
 
@@ -56,14 +54,10 @@ namespace DotHex
 
         public void Next()
         {
-            if (changed)
+            findOptions.Hex = new byte[findHexBox.ByteProvider.Length];
+            for (long i = 0; i < findHexBox.ByteProvider.Length; ++i)
             {
-                findOptions.Hex = new byte[findHexBox.ByteProvider.Length];
-                for (long i = 0; i < findHexBox.ByteProvider.Length; ++i)
-                {
-                    findOptions.Hex[i] = findHexBox.ByteProvider.ReadByte(i);
-                }
-                changed = false;
+                findOptions.Hex[i] = findHexBox.ByteProvider.ReadByte(i);
             }
 
             long pos = hexBox.Find(findOptions);
@@ -86,11 +80,6 @@ namespace DotHex
         private void closeBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-        }
-
-        private void findHexBox_TextChanged(object sender, EventArgs e)
-        {
-            changed = true;
         }
 
     }
